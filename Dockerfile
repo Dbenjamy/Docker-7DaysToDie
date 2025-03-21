@@ -110,7 +110,7 @@ ENV ALLOC_FIXES=no ALLOC_FIXES_UPDATE=no \
 RUN deluser --remove-home ubuntu
 
 # Create user and fix permissions - chown shouldn't be necessary check adduser command
-RUN adduser --home /home/sdtdserver --disabled-password --shell /bin/bash --disabled-login --gecos "" sdtdserver \
+RUN adduser --home /home/sdtdserver --uid 1000 --gid 1000 --disabled-password --shell /bin/bash --disabled-login --gecos "" sdtdserver \
 	&& chown -R sdtdserver:sdtdserver /home/sdtdserver
 
 #Set ulimit as recommended by the game.
